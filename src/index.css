@@ -69,6 +69,34 @@ body, html {
     opacity: 0.9;
 }
 
+.game-modal-overlay {
+    background-color: rgb(103, 172, 103);
+    opacity: 0.8;
+    text-align: center;
+}
+
+.game-modal {
+    border-radius: 10px;
+}
+
+.modal-font {
+    font-size: 64px;
+    font-weight: bold;
+    color: white;
+}
+
+.back-button {
+    width: 200px;
+    height: 60px;
+    margin: 20px 0 50px 0;
+}
+
+.footer-modal {
+    background-color: rgb(103, 172, 103);
+    opacity: 0.8;
+    text-align: center;
+}
+
 .snake-dot {
     position: absolute;
     height: 2%;
@@ -85,4 +113,22 @@ body, html {
     background-color: red;
     border-radius: 50%;
     z-index: 1;
+}
+
+.score-card {
+    width: 250px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: 15px solid black;
+    background-color: rgb(103, 172, 103);
+    opacity: 0.9;
+    padding: 10px;
+    text-align: center;
+}
+
+.score-card p {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
 }

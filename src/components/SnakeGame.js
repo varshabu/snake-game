@@ -3,6 +3,7 @@
 import './../index.css';
 import Snake from './Snake';
 import Food from './Food';
+import Modal from './Modal'
 import { useEffect, useState } from 'react';
 import { useInterval } from "./../useInterval";
 
@@ -15,13 +16,15 @@ const getRandomCordinates = () => {
 }
 
 const SnakeGame = ({ onAbort }) => {
-    const initialSnakeDots = [[0,0],[2,0]];
+    const initialSnakeDots = [[6,12],[8,12],[10,12]];
     const initialFoodDot = getRandomCordinates();
 
     const [snakeDots, setSnakeDots] = useState(initialSnakeDots);
     const [foodDot, setFoodDot] = useState(initialFoodDot);
     const [direction, setDirection] = useState('RIGHT');
     const [speed, setSpeed] = useState(200);
+    const [score, setScore] = useState(0)
+    const [showModal, setShowModal] = useState(false);
 
     useInterval(() => moveSnake(), speed);
 
@@ -101,6 +104,7 @@ const SnakeGame = ({ onAbort }) => {
         let head = snakeDots[snakeDots.length - 1];
         let food = foodDot;
         if(head[0] === food[0] && head[1] === food[1]){
+            setScore(score + 1);
             setFoodDot(getRandomCordinates);
             enlargeSnake();
             increaseSpeed()
@@ -120,17 +124,24 @@ const SnakeGame = ({ onAbort }) => {
       }
 
     const onGameOver = () => {
-        alert("Crossed boundary");
-        setSnakeDots(initialSnakeDots);
-        setFoodDot(initialFoodDot);
-        setSpeed(200);
-        setDirection('RIGHT');
+        setShowModal(true);
     }
 
     return (
-        <div className="game-area">
-            <Snake snakes={snakeDots} />
-            <Food dot={foodDot} />
+        <div>
+            {showModal ?
+                <Modal onClose={onAbort} /> :
+                <div>
+                    <div className="game-area">
+                        <Snake snakes={snakeDots} />
+                        <Food dot={foodDot} />
+                    </div>
+                    <div className="score-card">
+                        <p>Your Score</p>
+                        <p>{score}</p>
+                    </div>
+                </div>
+            }
         </div>
     )
 }
