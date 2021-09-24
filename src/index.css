@@ -4,20 +4,69 @@ body, html {
 }
 
 .bg {
-    background-image: url("bg-image.jpg");
+    background-image: url("snake-image.jpg");
     height: 100vh;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.game-area {
-    position: relative;
-    height: 600px;
-    width: 600px;
-    border: 2px solid black;
+.form-container {
+    width: 900px;
+    max-height: 600px;
+    background-color: rgb(103, 172, 103);
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: auto;
-    background-color: burlywood;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.header-font {
+    font-size: 84px;
+    font-weight: bold;
+    color: white;
+    margin-top: 50px;
+}
+
+.start-button {
+    width: 200px;
+    height: 60px;
+    margin-top: 40px;
+}
+
+.rule-text {
+    margin-bottom: 5px;
+    color: rgb(0, 134, 0);
+}
+
+.game-rules {
+    text-align: left;
+    margin: auto;
+    width: 55%;
+    border-radius: 10px;
+    background: white;
+    padding: 20px 20px 20px 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.game-area {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 800px;
+    width: 800px;
+    border: 30px solid black;
+    margin: auto;
+    background-color: rgb(103, 172, 103);
+    opacity: 0.9;
 }
 
 .snake-dot {

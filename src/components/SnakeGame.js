@@ -14,7 +14,7 @@ const getRandomCordinates = () => {
     return [x, y];
 }
 
-const SnakeGame = () => {
+const SnakeGame = ({ onAbort }) => {
     const initialSnakeDots = [[0,0],[2,0]];
     const initialFoodDot = getRandomCordinates();
 
